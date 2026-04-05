@@ -2,15 +2,15 @@ let characters = [
     {
         name: "Mother",
         image: "",
-        locationX: 0,
-        locationY: 1,
+        locationX: 200,
+        locationY: 300,
         inventory: []
     },
     {
         name: "Child",
-        image: "",
-        locationX: 0,
-        locationY: 1,
+        image: "assets/Child character down.png",
+        locationX: 500,
+        locationY: 300,
         inventory: []
     }
 ];
@@ -97,68 +97,68 @@ let appliances = [
     {
         name: "Stove",
         image: "",
-        locationX: 0,
-        locationY: 1
+        locationX: 650,
+        locationY: 100
     },
     {
         name: "Sink",
         image: "",
-        locationX: 0,
-        locationY: 1
+        locationX: 100,
+        locationY: 250
     },
     {
         name: "Oven",
         image: "",
-        locationX: 0,
-        locationY: 1
+        locationX: 650,
+        locationY: 250
     },
     {
         name: "Fridge",
         image: "",
-        locationX: 0,
-        locationY: 1
+        locationX: 100,
+        locationY: 100
     },
     {
         name: "Toaster",
         image: "",
-        locationX: 0,
-        locationY: 1
+        locationX: 500,
+        locationY: 100
     },
     {
         name: "Cutting Board",
         image: "",
-        locationX: 0,
-        locationY: 1
+        locationX: 250,
+        locationY: 450
     },
     {
         name: "Island",
         image: "",
-        locationX: 0,
-        locationY: 1
+        locationX: 350,
+        locationY: 250
     },
     {
         name: "Microwave",
         image: "",
-        locationX: 0,
-        locationY: 1
+        locationX: 500,
+        locationY: 250
     },
     {
         name: "Bowl",
         image: "",
-        locationX: 0,
-        locationY: 1
+        locationX: 350,
+        locationY: 450
     },
     {
         name: "Plate",
         image: "",
-        locationX: 0,
-        locationY: 1
+        locationX: 450,
+        locationY: 450
     },
     {
         name: "Tray",
         image : "",
-        locationX: 0,
-        locationY: 1
+        locationX: 550,
+        locationY: 450
     }
 ];
 
