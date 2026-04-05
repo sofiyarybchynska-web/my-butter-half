@@ -108,11 +108,11 @@ appliancesImages.pot_empty.src = "assets/pot_empty.png";
 appliancesImages.pan.src = "assets/pan_empty.png";
 
 //TODO: ASSIGN
-appliancesImages.bowl_filled.src = "assets/bowl_empty.png";
-appliancesImages.bowl_finished.src = "assets/bowl_empty.png";
-appliancesImages.pot_filled.src = "assets/pan_empty.png";
-appliancesImages.cutting_board_filled.src = "assets/bowl_empty.png";
-appliancesImages.canned_tomatoes.src = "assets/plate_empty.png";
+appliancesImages.bowl_filled.src = "assets/bowl_full_onion.png";
+appliancesImages.bowl_finished.src = "assets/bowl_full_tomato.png";
+appliancesImages.pot_filled.src = "assets/pot_full.png";
+appliancesImages.cutting_board_filled.src = "assets/cutting_board.jpg";
+appliancesImages.canned_tomatoes.src = "assets/tomato_can.png";
 //appliancesImages.waiting_time.src = "assets/...";
 
 let render = 
@@ -459,18 +459,18 @@ function draw(){
     // }
 
     //draw slots
-    for (let i = 0; i < slots.length; i++) {
-        ctx.fillStyle = "gray";
-        ctx.fillRect(slots[i].locationX*scaleX, slots[i].locationY*scaleY, slots[i].width*scaleX, slots[i].height*scaleY);
-        // draw label
-        ctx.fillStyle = "black";
-        ctx.font = "10px Arial";
-        ctx.fillText(
-        slots[i].name,
-        slots[i].locationX * scaleX,
-        slots[i].locationY * scaleY - 5
-    );
-    }
+    // for (let i = 0; i < slots.length; i++) {
+    //     ctx.fillStyle = "gray";
+    //     ctx.fillRect(slots[i].locationX*scaleX, slots[i].locationY*scaleY, slots[i].width*scaleX, slots[i].height*scaleY);
+    //     // draw label
+    //     ctx.fillStyle = "black";
+    //     ctx.font = "10px Arial";
+    //     ctx.fillText(
+    //     slots[i].name,
+    //     slots[i].locationX * scaleX,
+    //     slots[i].locationY * scaleY - 5
+    // );
+    // }
 
     for(let i = 8; i < appliances.length; i++) {
          ctx.drawImage(appliances[i].image, appliances[i].locationX*scaleX, appliances[i].locationY*scaleY, appliances[i].width*scaleX, appliances[i].height*scaleY);
@@ -485,13 +485,13 @@ function draw(){
     //draw mother
     ctx.drawImage(characters[0].image, characters[0].locationX * scaleX, characters[0].locationY * scaleY, characters[0].width * scaleX, characters[0].height * scaleY);
     //draw inventory
-    ctx.strokeStyle = "red";
-    ctx.strokeRect(
-        (characters[0].locationX + characters[0].width / 4) * scaleX,
-        (characters[0].locationY + characters[0].height / 1.5) * scaleY,
-        (characters[0].width / 2) * scaleX,
-        (characters[0].height / 5) * scaleY
-    );
+    // ctx.strokeStyle = "red";
+    // ctx.strokeRect(
+    //     (characters[0].locationX + characters[0].width / 4) * scaleX,
+    //     (characters[0].locationY + characters[0].height / 1.5) * scaleY,
+    //     (characters[0].width / 2) * scaleX,
+    //     (characters[0].height / 5) * scaleY
+    // );
     if(characters[0].inventory != null){
         ctx.drawImage(
         characters[0].inventory,
@@ -502,23 +502,23 @@ function draw(){
     );
     }
 
-    ctx.strokeStyle = 'red';      // Set border color
-    ctx.lineWidth = 1;           // Set border thickness
-    ctx.strokeRect(characters[0].locationX * scaleX+30, characters[0].locationY * scaleY, characters[0].width * scaleX-50, characters[0].height * scaleY-30);
+    // ctx.strokeStyle = 'red';      // Set border color
+    // ctx.lineWidth = 1;           // Set border thickness
+    // ctx.strokeRect(characters[0].locationX * scaleX+30, characters[0].locationY * scaleY, characters[0].width * scaleX-50, characters[0].height * scaleY-30);
 
     //draw child
-    ctx.strokeStyle = 'red';      // Set border color
-    ctx.lineWidth = 1;           // Set border thickness
-    ctx.strokeRect(characters[1].locationX * scaleX+30, characters[1].locationY * scaleY, characters[1].width * scaleX-50, characters[1].height * scaleY-30);
+    // ctx.strokeStyle = 'red';      // Set border color
+    // ctx.lineWidth = 1;           // Set border thickness
+    // ctx.strokeRect(characters[1].locationX * scaleX+30, characters[1].locationY * scaleY, characters[1].width * scaleX-50, characters[1].height * scaleY-30);
     ctx.drawImage(characters[1].image, characters[1].locationX * scaleX, characters[1].locationY * scaleY, characters[1].width * scaleX, characters[1].height * scaleY);
     //draw inventory
-    ctx.strokeStyle = "red";
-    ctx.strokeRect(
-        (characters[1].locationX + characters[1].width / 4) * scaleX,
-        (characters[1].locationY + characters[1].height / 1.7) * scaleY,
-        (characters[1].width / 2) * scaleX,
-        (characters[1].height / 6) * scaleY
-    );
+    // ctx.strokeStyle = "red";
+    // ctx.strokeRect(
+    //     (characters[1].locationX + characters[1].width / 4) * scaleX,
+    //     (characters[1].locationY + characters[1].height / 1.7) * scaleY,
+    //     (characters[1].width / 2) * scaleX,
+    //     (characters[1].height / 6) * scaleY
+    // );
 
     if(characters[1].inventory != null){
         ctx.drawImage(
