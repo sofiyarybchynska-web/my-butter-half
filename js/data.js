@@ -2,16 +2,16 @@ let characters = [
     {
         name: "Mother",
         image: null,
-        locationX: 200,
-        locationY: 300,
+        locationX: 500,
+        locationY: 600,
         width: 250*1.5,
         height: 275*1.5,
     },
     {
         name: "Child",
         image: null,
-        locationX: 500,
-        locationY: 300,
+        locationX: 1500,
+        locationY: 600,
         width: 340,
         height: 400,
         inventory: []
