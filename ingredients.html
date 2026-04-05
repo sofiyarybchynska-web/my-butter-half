@@ -1,25 +1,55 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ingredients.css">
     <title>My Butter Half - Ingredients</title>
 </head>
-
 <body>
 
+    <!-- Background matches the game's gradient style -->
+    <div id="page">
 
+        <h1 id="title">Ingredients</h1>
 
+        <!-- Input row: search bar + amount + unit + add/remove buttons -->
+        <div id="input-row">
 
+            <!-- Ingredient search + dropdown -->
+            <div id="search-wrapper">
+                <span id="back-arrow">&#8592;</span>
+                <input type="text" id="ingredient-input" placeholder="add/remove ingredients..." oninput="filterDropdown()" onfocus="openDropdown()" autocomplete="off">
+                <span id="arrow-btn" onclick="toggleDropdown()">&#9654;</span>
 
+                <!-- Dropdown list -->
+                <ul id="dropdown">
+                    
+                </ul>
+            </div>
 
+            <!-- Amount input -->
+            <input type="number" id="amount-input" class="small-input" placeholder="amount...">
 
-    <script src="js/data.js"></script>
+            <!-- Unit input -->
+            <input type="text" id="unit-input" class="small-input" placeholder="unit...">
+
+            <!-- Add button -->
+            <button class="icon-btn" onclick="addIngredient()">&#8853;</button>
+
+            <!-- Remove button -->
+            <button class="icon-btn" onclick="removeIngredient()">&#8854;</button>
+
+        </div>
+
+        <!-- List of added ingredients -->
+        <ul id="ingredient-list">
+           
+        </ul>
+
+    </div>
+
     <script src="js/ingredients.js"></script>
 </body>
-
 </html>
