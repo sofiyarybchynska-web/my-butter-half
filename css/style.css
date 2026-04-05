@@ -1,6 +1,7 @@
 body {
   margin: 0;
   overflow: hidden;
+  image-rendering: pixelated;
 }
 
 canvas {
@@ -46,4 +47,39 @@ canvas {
   bottom: 35%;
   width: 20%;
   height: 14%;
+}
+
+#recipeBox {
+  position: absolute;
+  bottom: 3vh;
+  right: 0.1vw;
+
+  width: 20vw;
+  height: 42vh;
+  padding: 2vw;
+
+  background-image: url("../assets/clipboard.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 1.2vw;
+  color: black;
+
+  z-index: 10;
+}
+
+#recipeBox ul {
+  padding-top: 0;
+  padding-left: 2.8vw;
+  padding-right: 2.8vw;
+  list-style-type: square;
+  margin-top: 0;
+}
+
+#recipeBox h3 {
+  text-align: center;
+  padding-top: 2vh;
+  margin-bottom: 0.5vh;
+  margin-top: 4.5vh;
 }

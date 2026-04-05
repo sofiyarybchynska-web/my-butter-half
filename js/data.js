@@ -2,7 +2,7 @@ let characters = [
     {
         name: "Mother",
         image: null,
-        locationX: 500,
+        locationX: 250,
         locationY: 600,
         width: 250*1.5,
         height: 275*1.5,
@@ -11,7 +11,7 @@ let characters = [
     {
         name: "Child",
         image: null,
-        locationX: 1500,
+        locationX: 500,
         locationY: 600,
         width: 340,
         height: 400,
@@ -173,8 +173,8 @@ let appliances = [
     {
         name: "Tray",
         image: null,
-        locationX: 1350,
-        locationY: 700,
+        locationX: 900,
+        locationY: 720,
         width: 170,
         height: 90
     },
@@ -260,9 +260,9 @@ const slots = [
     {
         name: "Tray Place",
         image: null,
-        locationX: 1360,
-        locationY: 700,
-        width: 150,
+        locationX: 900,
+        locationY: 720,
+        width: 170,
         height: 80
     }
 ];

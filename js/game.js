@@ -1,5 +1,8 @@
 console.log("running");
 
+let showSteps = [1,1,1,0, 0, 0, 0];
+let doneSteps = [0,0,0,0,0,0,0];
+
 let fridge = 0;
 let onionsCut = 0;
 let scaleX;
@@ -190,6 +193,7 @@ function nextStep(character, object){
             //grab the onions and garlic
             character.inventory = appliancesImages.bowl_filled;
             fridge = 1;
+            doneSteps[0] = 1;
         } else {
             character.inventory = appliancesImages.canned_tomatoes;
             onionsCut = 1;
@@ -199,10 +203,12 @@ function nextStep(character, object){
     if(character.inventory == appliancesImages.bowl_filled && object.name == "Cutting Board Place"){
         character.inventory = null;
         render[2].toDraw = 1;
+        doneSteps[1] = 1;
     } else {
         if(character.inventory == appliancesImages.canned_tomatoes && object.name == "Stove Burner"){
         character.inventory = null;
         render[3].image = appliancesImages.pot_filled;
+        doneSteps[3] = 1;
         } else {
             if(onionsCut == 1 && character.inventory == null && object.name == "Cutting Board Place"){
                 render[2].toDraw = 0;
@@ -219,6 +225,7 @@ function nextStep(character, object){
     if(character.inventory == render[1].image && object.name == "Stove Burner"){
         character.inventory = null;
         render[3].toDraw = 1;
+        doneSteps[2] = 1;
     }
 
     if(character.inventory == render[0].image && object.name == "Stove Burner" && render[0].toDraw == 0){
@@ -229,6 +236,7 @@ function nextStep(character, object){
 
     if(character.inventory == render[2].image && object.name == "Stove Burner"){
       character.inventory = null;
+      doneSteps[4] = 1;
     }
 
     
@@ -236,6 +244,7 @@ function nextStep(character, object){
     if(character.inventory == appliancesImages.bowl_finished && object.name == "Tray Place"){
         appliances[9].image = appliancesImages.bowl_finished;
         character.inventory = null;
+        doneSteps[5] = 1;
     }
 
     if(character.inventory == null && object.name == "Stove Burner" && appliances[9].image == appliancesImages.bowl_finished){
@@ -245,6 +254,7 @@ function nextStep(character, object){
 
     if(character.inventory == render[1].image && object.name == "Sink Place" && appliances[9].image == appliancesImages.bowl_finished){
         character.inventory = null;
+        doneSteps[6] = 1;
     }
 
 }
@@ -531,9 +541,40 @@ function draw(){
     }
 }
 
+function updateSteps(){
+  if(doneSteps[2]==1){
+    showSteps[3]=1;
+  }
+  if(doneSteps[1]==1 && doneSteps[2] == 1){
+    showSteps[4] = 1;
+  }
+  if(doneSteps[3] == 1 && doneSteps[4]==1){
+    showSteps[5] = 1;
+  }
+  if(doneSteps[5] == 1){
+    showSteps[6] = 1;
+  }
+}
+
+function displaySteps(){
+  for(let i=0; i<showSteps.length; i++){
+    if(showSteps[i]==1){
+      document.getElementById("step"+(i+1)).style.display = "list-item";
+    } else {
+      document.getElementById("step"+(i+1)).style.display = "none";
+    }
+
+    if(doneSteps[i]==1){
+      document.getElementById("step"+(i+1)).style.textDecoration = "line-through";
+    }
+  }
+}
+
 function gameLoop() {
     update();
     draw();
+    updateSteps();
+    displaySteps();
     requestAnimationFrame(gameLoop);
 }
 
