@@ -11,10 +11,9 @@ Built in 24 hours for a university hackathon, youCode 2026, under the theme **In
 Two players control a **mother** and **child** working together in a shared kitchen. Players must:
 
 - Move around the kitchen
-- Gather ingredients
 - Use appliances
 - Follow recipe steps
-- Cook and serve dishes
+- Cook and serve dishes by collaborating and communicating with each other
 
 ---
 
@@ -48,7 +47,7 @@ Both players can move simultaneously on the same keyboard.
 
 Access to food and cooking resources can be limited in shelters and underserved communities. We wanted to build a game that reflects the importance of **collaboration, adaptability, and community support** when working with limited ingredients.
 
-By creating a cooperative cooking experience, we highlight teamwork and resourcefulness in a fun and engaging way.
+By creating a cooperative cooking experience, we highlight teamwork and resourcefulness in a fun and engaging way. We hope this game can relive mothers' frustration/stress with cooking for their child, and allow children to have some sort of control over what they eat, even in a shelter environment, and being involved in the cooking process by "helping" their mother (instead of in real life with kitchen appliances that might be dangerous for little children to use).
 
 ---
 
@@ -56,13 +55,9 @@ By creating a cooperative cooking experience, we highlight teamwork and resource
 
 ### Frontend
 - HTML
+- HTML Canvas
 - CSS
 - JavaScript
-- HTML Canvas
-
-### Backend
-- Python
-- Flask
 
 ### Assets
 - Pixel art sprites
@@ -87,8 +82,6 @@ The game uses a continuous update loop:
 3. Check collision detection
 4. Handle interactions
 5. Render updated frame
-
-This creates smooth real-time gameplay.
 
 ---
 
@@ -153,7 +146,7 @@ Using a browser, go to: https://sofiyarybchynska-web.github.io/my-butter-half/
 - Timers, cooking delays
 - Animations and sound effects
 - More ingredient interactions
-- Implement the ingredien
+- Implement the updating ingredients and filtering recipes features fully
 
 ---
 
@@ -168,7 +161,7 @@ Using a browser, go to: https://sofiyarybchynska-web.github.io/my-butter-half/
 
 # ❤️ Built For
 
-University Hackathon  
+youCode 2026 
 Theme: **Innovation for Equity and Community**
 
 ---
