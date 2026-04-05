@@ -111,7 +111,7 @@ let appliances = [
         locationX: 1050,
         locationY: 160,
         width: 340,
-        height: 150
+        height: 300
     },
     {
         name: "Oven",
@@ -119,7 +119,7 @@ let appliances = [
         locationX: 380,
         locationY: 310,
         width: 310,
-        height: 140
+        height: 150
     },
     {
         name: "Fridge",
@@ -127,7 +127,7 @@ let appliances = [
         locationX: 1700,
         locationY: 100,
         width: 190,
-        height: 320
+        height: 360
     },
     {
         name: "Toaster",
@@ -159,47 +159,47 @@ let appliances = [
         locationX: 860,
         locationY: 550,
         width: 720,
-        height: 300
+        height: 400
     },
     {
         name: "Bowl",
         image: null,
-        locationX: 350,
-        locationY: 450,
-        width: 50,
-        height: 50
+        locationX: 70,
+        locationY: 750,
+        width: 130,
+        height: 80
     },
     {
         name: "Plate",
         image: null,
-        locationX: 450,
-        locationY: 450,
-        width: 50,
-        height: 50
+        locationX: 70,
+        locationY: 630,
+        width: 130,
+        height: 80
     },
     {
         name: "Tray",
         image: null,
-        locationX: 550,
-        locationY: 450,
-        width: 50,
-        height: 50
+        locationX: 1350,
+        locationY: 700,
+        width: 170,
+        height: 90
     },
     {
         name: "Pot",
         image: null,
-        locationX: 550,
+        locationX: 45,
         locationY: 450,
-        width: 50,
-        height: 50
+        width: 170,
+        height: 120
     },
     {
         name: "Pan",
         image: null,
-        locationX: 550,
-        locationY: 450,
-        width: 50,
-        height: 50
+        locationX: 60,
+        locationY: 300,
+        width: 200,
+        height: 110
     }
 ];
 

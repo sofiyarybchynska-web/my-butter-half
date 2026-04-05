@@ -123,12 +123,12 @@ function isCollidingBottom(character, rect) {
 
   const bottomLeft = {
     x: character.locationX,
-    y: character.locationY + character.height
+    y: character.locationY + character.height - 30
   };
 
   const bottomRight = {
     x: character.locationX + character.width,
-    y: character.locationY + character.height
+    y: character.locationY + character.height - 30
   };
 
   return (
@@ -157,7 +157,7 @@ function moveCharacter(character, newX, newY) {
 
   let collision = false;
 
-  for (let i = 0; i < appliances.length; i++) {
+  for (let i = 0; i < 8; i++) {
     if (isCollidingBottom(temp, appliances[i])) {
       collision = true;
       break;
@@ -271,34 +271,34 @@ function draw(){
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
     // draw appliances
-    for (let i = 0; i < 8; i++) {
-        ctx.fillStyle = "gray";
-        ctx.fillRect(appliances[i].locationX*scaleX, appliances[i].locationY*scaleY, appliances[i].width*scaleX, appliances[i].height*scaleY);
-        // draw label
-        ctx.fillStyle = "black";
-        ctx.font = "10px Arial";
-        ctx.fillText(
-        appliances[i].name,
-        appliances[i].locationX * scaleX,
-        appliances[i].locationY * scaleY - 5
-    );
-    }
-
-    // for(let i = 6; i < appliances.length; i++) {
-    //     ctx.drawImage(appliances[i].image, appliances[i].locationX, appliances[i].locationY, appliances[i].width, appliances[i].height);
+    // for (let i = 0; i < 8; i++) {
+    //     ctx.fillStyle = "gray";
+    //     ctx.fillRect(appliances[i].locationX*scaleX, appliances[i].locationY*scaleY, appliances[i].width*scaleX, appliances[i].height*scaleY);
+    //     // draw label
+    //     ctx.fillStyle = "black";
+    //     ctx.font = "10px Arial";
+    //     ctx.fillText(
+    //     appliances[i].name,
+    //     appliances[i].locationX * scaleX,
+    //     appliances[i].locationY * scaleY - 5
+    // );
     // }
+
+    for(let i = 8; i < appliances.length; i++) {
+         ctx.drawImage(appliances[i].image, appliances[i].locationX*scaleX, appliances[i].locationY*scaleY, appliances[i].width*scaleX, appliances[i].height*scaleY);
+    }
 
     //draw mother
     ctx.drawImage(characters[0].image, characters[0].locationX * scaleX, characters[0].locationY * scaleY, characters[0].width * scaleX, characters[0].height * scaleY);
 
-    ctx.strokeStyle = 'red';      // Set border color
-    ctx.lineWidth = 1;           // Set border thickness
-    ctx.strokeRect(characters[0].locationX * scaleX, characters[0].locationY * scaleY, characters[0].width * scaleX, characters[0].height * scaleY);
+    // ctx.strokeStyle = 'red';      // Set border color
+    // ctx.lineWidth = 1;           // Set border thickness
+    // ctx.strokeRect(characters[0].locationX * scaleX, characters[0].locationY * scaleY, characters[0].width * scaleX, characters[0].height * scaleY-30);
 
     //draw child
-    ctx.strokeStyle = 'red';      // Set border color
-    ctx.lineWidth = 1;           // Set border thickness
-    ctx.strokeRect(characters[1].locationX * scaleX, characters[1].locationY * scaleY, characters[1].width * scaleX, characters[1].height * scaleY);
+    // ctx.strokeStyle = 'red';      // Set border color
+    // ctx.lineWidth = 1;           // Set border thickness
+    // ctx.strokeRect(characters[1].locationX * scaleX, characters[1].locationY * scaleY, characters[1].width * scaleX, characters[1].height * scaleY-30);
     ctx.drawImage(characters[1].image, characters[1].locationX * scaleX, characters[1].locationY * scaleY, characters[1].width * scaleX, characters[1].height * scaleY);
 }
 
