@@ -6,6 +6,7 @@ let characters = [
         locationY: 600,
         width: 250*1.5,
         height: 275*1.5,
+        inventory: null
     },
     {
         name: "Child",
@@ -14,7 +15,7 @@ let characters = [
         locationY: 600,
         width: 340,
         height: 400,
-        inventory: []
+        inventory: null
     }
 ];
 
@@ -116,15 +117,15 @@ let appliances = [
     {
         name: "Oven",
         image: null,
-        locationX: 350,
+        locationX: 250,
         locationY: 310,
-        width: 370,
+        width: 700,
         height: 150
     },
     {
         name: "Fridge",
         image: null,
-        locationX: 1600,
+        locationX: 1500,
         locationY: 100,
         width: 500,
         height: 360
@@ -162,14 +163,6 @@ let appliances = [
         height: 400
     },
     {
-        name: "Bowl",
-        image: null,
-        locationX: 70,
-        locationY: 750,
-        width: 130,
-        height: 80
-    },
-    {
         name: "Plate",
         image: null,
         locationX: 70,
@@ -186,14 +179,6 @@ let appliances = [
         height: 90
     },
     {
-        name: "Pot",
-        image: null,
-        locationX: 45,
-        locationY: 450,
-        width: 170,
-        height: 120
-    },
-    {
         name: "Pan",
         image: null,
         locationX: 60,
@@ -203,9 +188,94 @@ let appliances = [
     }
 ];
 
+/*
+{
+        name: "Bowl",
+        image: null,
+        locationX: 70,
+        locationY: 750,
+        width: 130,
+        height: 80
+    },
+    {
+        name: "Pot",
+        image: null,
+        locationX: 45,
+        locationY: 450,
+        width: 170,
+        height: 120
+    },
+*/
+
+
+const slots = [
+    {
+        name: "Stove Burner",
+        image: null,
+        locationX: 420,
+        locationY: 190,
+        width: 170,
+        height: 120
+    },
+    {
+        name: "Bowl Place",
+        image: null,
+        locationX: 60,
+        locationY: 750,
+        width: 150,
+        height: 80
+    },
+    {
+        name: "Pot Place",
+        image: null,
+        locationX: 60,
+        locationY: 460,
+        width: 150,
+        height: 110
+    },
+    {
+        name: "Cutting Board Place",
+        image: null,
+        locationX: 750,
+        locationY: 190,
+        width: 210,
+        height: 110
+    },
+    {
+        name: "Sink Place",
+        image: null,
+        locationX: 1230,
+        locationY: 190,
+        width: 155,
+        height: 110
+    },
+    {
+        name: "Fridge Place",
+        image: null,
+        locationX: 1750,
+        locationY: 200,
+        width: 120,
+        height: 90
+    },
+    {
+        name: "Tray Place",
+        image: null,
+        locationX: 1360,
+        locationY: 700,
+        width: 150,
+        height: 80
+    }
+];
+// empty bowl, pot place, pot with tomato soup, filled cutting board, onions and garlic bowls, canned tomatoes, finished tomato soup
+
 
 /* Steps:
 action:
 time:
 image:
+*/
+
+/*
+render: empty bowl, pot place, pot with tomato soup, filled cutting board, onions and garlic bowls, canned tomatoes, finished tomato soup
+let render = [1,1,0,0,0,0,0]
 */

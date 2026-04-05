@@ -1,5 +1,7 @@
 console.log("running");
 
+let fridge = 0;
+let onionsCut = 0;
 let scaleX;
 let scaleY;
 
@@ -85,25 +87,184 @@ const appliancesImages = {
     // toaster: new Image(),
     // cuttingBoard: new Image(),
     // island: new Image(),
-    bowl: new Image(),
+    bowl_empty: new Image(),
     plate: new Image(),
     tray: new Image(),
-    pot: new Image(),
-    pan: new Image()
+    pot_empty: new Image(),
+    pan: new Image(),
+    bowl_filled: new Image(),
+    bowl_finished: new Image(),
+    pot_filled: new Image(),
+    cutting_board_filled: new Image(),
+    canned_tomatoes: new Image(),
+    waiting_time: new Image()
 }
 
 //assign images
-appliancesImages.bowl.src = "assets/bowl_empty.png";
+appliancesImages.bowl_empty.src = "assets/bowl_empty.png";
 appliancesImages.plate.src = "assets/plate_empty.png";
 appliancesImages.tray.src = "assets/tray_empty.png";
-appliancesImages.pot.src = "assets/pot_empty.png";
+appliancesImages.pot_empty.src = "assets/pot_empty.png";
 appliancesImages.pan.src = "assets/pan_empty.png";
 
-appliances[8].image = appliancesImages.bowl;
-appliances[9].image = appliancesImages.plate;
-appliances[10].image = appliancesImages.tray;
-appliances[11].image = appliancesImages.pot;
-appliances[12].image = appliancesImages.pan;
+//TODO: ASSIGN
+appliancesImages.bowl_filled.src = "assets/bowl_empty.png";
+appliancesImages.bowl_finished.src = "assets/bowl_empty.png";
+appliancesImages.pot_filled.src = "assets/pan_empty.png";
+appliancesImages.cutting_board_filled.src = "assets/bowl_empty.png";
+appliancesImages.canned_tomatoes.src = "assets/plate_empty.png";
+//appliancesImages.waiting_time.src = "assets/...";
+
+let render = 
+[
+    {
+        toDraw: 1,
+        image: appliancesImages.bowl_empty,
+        locationX: 70,
+        locationY: 750,
+        width: 130,
+        height: 80
+    },
+    {
+        toDraw: 1,
+        image: appliancesImages.pot_empty,
+        locationX: 45,
+        locationY: 450,
+        width: 170,
+        height: 120
+    },
+    {
+        toDraw: 0,
+        image: appliancesImages.cutting_board_filled,
+        locationX: slots[3].locationX,
+        locationY: slots[3].locationY,
+        width: slots[3].width,
+        height: slots[3].height
+    },
+    {
+        toDraw: 0,
+        image: appliancesImages.pot_empty,
+        locationX: slots[0].locationX,
+        locationY: slots[0].locationY,
+        width: slots[0].width,
+        height: slots[0].height
+    },
+];
+
+//appliances[8].image = appliancesImages.bowl;
+appliances[8].image = appliancesImages.plate;
+appliances[9].image = appliancesImages.tray;
+//appliances[11].image = appliancesImages.pot;
+appliances[10].image = appliancesImages.pan;
+
+function getCharacterCenter(character) {
+  return {
+    x: character.locationX + character.width / 2,
+    y: character.locationY + character.height / 2
+  };
+}
+
+function getObjectCenter(obj) {
+  return {
+    x: obj.locationX + obj.width / 2,
+    y: obj.locationY + obj.height / 2
+  };
+}
+
+function getDistance(a, b) {
+  return Math.sqrt(
+    (a.x - b.x) ** 2 +
+    (a.y - b.y) ** 2
+  );
+}
+
+function nextStep(character, object){
+    if(character.inventory == null && object.name == "Bowl Place"){
+        //grab the bowl
+        render[0].toDraw = 0;
+        character.inventory = render[0].image;
+    }
+
+    if(character.inventory == null && object.name == "Fridge Place"){
+        if(fridge==0){
+            //grab the onions and garlic
+            character.inventory = appliancesImages.bowl_filled;
+            fridge = 1;
+        } else {
+            character.inventory = appliancesImages.canned_tomatoes;
+            onionsCut = 1;
+        }
+    }
+    
+    if(character.inventory == appliancesImages.bowl_filled && object.name == "Cutting Board Place"){
+        character.inventory = null;
+        render[2].toDraw = 1;
+    } else {
+        if(character.inventory == appliancesImages.canned_tomatoes && object.name == "Stove Burner"){
+        character.inventory = null;
+        render[3].image = appliancesImages.pot_filled;
+        } else {
+            if(onionsCut == 1 && character.inventory == null && object.name == "Cutting Board Place"){
+                render[2].toDraw = 0;
+                character.inventory = render[2].image;
+            }
+        }
+    }
+
+    if(character.inventory == null && object.name == "Pot Place"){
+        render[1].toDraw = 0;
+        character.inventory = render[1].image;
+    }
+
+    if(character.inventory == render[1].image && object.name == "Stove Burner"){
+        character.inventory = null;
+        render[3].toDraw = 1;
+    }
+
+    if(character.inventory == render[0].image && object.name == "Stove Burner" && render[0].toDraw == 0){
+        render[3].image = appliancesImages.pot_empty;
+        character.inventory = appliancesImages.bowl_finished;
+        console.log("in");
+    }
+
+    if(character.inventory == render[2].image && object.name == "Stove Burner"){
+      character.inventory = null;
+    }
+
+    
+
+    if(character.inventory == appliancesImages.bowl_finished && object.name == "Tray Place"){
+        appliances[9].image = appliancesImages.bowl_finished;
+        character.inventory = null;
+    }
+
+    if(character.inventory == null && object.name == "Stove Burner" && appliances[9].image == appliancesImages.bowl_finished){
+        character.inventory = render[1].image;
+        render[3].toDraw = 0;
+    }
+
+    if(character.inventory == render[1].image && object.name == "Sink Place" && appliances[9].image == appliancesImages.bowl_finished){
+        character.inventory = null;
+    }
+
+}
+
+function tryInteract(character) {
+
+  const charCenter = getCharacterCenter(character);
+
+  for (let i = 0; i < slots.length; i++) {
+
+    const objCenter = getObjectCenter(slots[i]);
+    const distance = getDistance(charCenter, objCenter);
+
+    if (distance < 180) {   // interaction range
+      console.log("Interacting with:", slots[i].name);
+      nextStep(character, slots[i]);
+      return;
+    }
+  }
+}
 
 //load default
 // function checkCollision(character, appliance) {
@@ -122,12 +283,12 @@ appliances[12].image = appliancesImages.pan;
 function isCollidingBottom(character, rect) {
 
   const bottomLeft = {
-    x: character.locationX,
+    x: character.locationX+100,
     y: character.locationY + character.height - 30
   };
 
   const bottomRight = {
-    x: character.locationX + character.width,
+    x: character.locationX + character.width - 100,
     y: character.locationY + character.height - 30
   };
 
@@ -234,6 +395,10 @@ function update() {
     newX1 += 2 * stepSize;
     p1.image = motherImages.right;
   }
+  if (keys[" "]){
+    tryInteract(characters[0]);
+  }
+  
 
   moveCharacter(p1, newX1, newY1);
 
@@ -259,8 +424,17 @@ function update() {
     newX2 += 2 * stepSize;
     p2.image = childImages.right;
   }
+  if(keys["Enter"]){
+    tryInteract(characters[1]);
+  }
 
   moveCharacter(p2, newX2, newY2);
+}
+
+function drawDynamics(object){
+    if(object.toDraw == 1){
+        ctx.drawImage(object.image, object.locationX*scaleX, object.locationY*scaleY, object.width*scaleX, object.height*scaleY);
+    }
 }
 
 function draw(){
@@ -284,22 +458,77 @@ function draw(){
     // );
     // }
 
+    //draw slots
+    for (let i = 0; i < slots.length; i++) {
+        ctx.fillStyle = "gray";
+        ctx.fillRect(slots[i].locationX*scaleX, slots[i].locationY*scaleY, slots[i].width*scaleX, slots[i].height*scaleY);
+        // draw label
+        ctx.fillStyle = "black";
+        ctx.font = "10px Arial";
+        ctx.fillText(
+        slots[i].name,
+        slots[i].locationX * scaleX,
+        slots[i].locationY * scaleY - 5
+    );
+    }
+
     for(let i = 8; i < appliances.length; i++) {
          ctx.drawImage(appliances[i].image, appliances[i].locationX*scaleX, appliances[i].locationY*scaleY, appliances[i].width*scaleX, appliances[i].height*scaleY);
     }
 
+    //draw dynamics
+
+    for(let i=0; i<render.length; i++){
+        drawDynamics(render[i]);
+    }
+
     //draw mother
     ctx.drawImage(characters[0].image, characters[0].locationX * scaleX, characters[0].locationY * scaleY, characters[0].width * scaleX, characters[0].height * scaleY);
+    //draw inventory
+    ctx.strokeStyle = "red";
+    ctx.strokeRect(
+        (characters[0].locationX + characters[0].width / 4) * scaleX,
+        (characters[0].locationY + characters[0].height / 1.5) * scaleY,
+        (characters[0].width / 2) * scaleX,
+        (characters[0].height / 5) * scaleY
+    );
+    if(characters[0].inventory != null){
+        ctx.drawImage(
+        characters[0].inventory,
+        (characters[0].locationX + characters[0].width / 4) * scaleX,
+        (characters[0].locationY + characters[0].height / 1.5) * scaleY,
+        (characters[0].width / 2) * scaleX,
+        (characters[0].height / 5) * scaleY
+    );
+    }
 
-    // ctx.strokeStyle = 'red';      // Set border color
-    // ctx.lineWidth = 1;           // Set border thickness
-    // ctx.strokeRect(characters[0].locationX * scaleX, characters[0].locationY * scaleY, characters[0].width * scaleX, characters[0].height * scaleY-30);
+    ctx.strokeStyle = 'red';      // Set border color
+    ctx.lineWidth = 1;           // Set border thickness
+    ctx.strokeRect(characters[0].locationX * scaleX+30, characters[0].locationY * scaleY, characters[0].width * scaleX-50, characters[0].height * scaleY-30);
 
     //draw child
-    // ctx.strokeStyle = 'red';      // Set border color
-    // ctx.lineWidth = 1;           // Set border thickness
-    // ctx.strokeRect(characters[1].locationX * scaleX, characters[1].locationY * scaleY, characters[1].width * scaleX, characters[1].height * scaleY-30);
+    ctx.strokeStyle = 'red';      // Set border color
+    ctx.lineWidth = 1;           // Set border thickness
+    ctx.strokeRect(characters[1].locationX * scaleX+30, characters[1].locationY * scaleY, characters[1].width * scaleX-50, characters[1].height * scaleY-30);
     ctx.drawImage(characters[1].image, characters[1].locationX * scaleX, characters[1].locationY * scaleY, characters[1].width * scaleX, characters[1].height * scaleY);
+    //draw inventory
+    ctx.strokeStyle = "red";
+    ctx.strokeRect(
+        (characters[1].locationX + characters[1].width / 4) * scaleX,
+        (characters[1].locationY + characters[1].height / 1.7) * scaleY,
+        (characters[1].width / 2) * scaleX,
+        (characters[1].height / 6) * scaleY
+    );
+
+    if(characters[1].inventory != null){
+        ctx.drawImage(
+        characters[1].inventory,
+        (characters[1].locationX + characters[1].width / 4) * scaleX,
+        (characters[1].locationY + characters[1].height / 1.5) * scaleY,
+        (characters[1].width / 2) * scaleX,
+        (characters[1].height / 5) * scaleY
+    );
+    }
 }
 
 function gameLoop() {
