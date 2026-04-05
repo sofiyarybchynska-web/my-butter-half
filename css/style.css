@@ -51,11 +51,11 @@ canvas {
 
 #recipeBox {
   position: absolute;
-  bottom: 3vh;
+  bottom: 1vh;
   right: 0.1vw;
 
   width: 20vw;
-  height: 42vh;
+  height: 45vh;
   padding: 2vw;
 
   background-image: url("../assets/clipboard.png");
