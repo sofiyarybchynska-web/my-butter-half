@@ -116,17 +116,17 @@ let appliances = [
     {
         name: "Oven",
         image: null,
-        locationX: 380,
+        locationX: 350,
         locationY: 310,
-        width: 310,
+        width: 370,
         height: 150
     },
     {
         name: "Fridge",
         image: null,
-        locationX: 1700,
+        locationX: 1600,
         locationY: 100,
-        width: 190,
+        width: 500,
         height: 360
     },
     {
