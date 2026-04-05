@@ -36,79 +36,59 @@ canvas {
   align-items: center;
 }
 
+/* Wrapper holds the card + its tooltip together */
+.card-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .recipe-card {
   width: 200px;
   cursor: pointer;
   image-rendering: pixelated;
   transition: transform 0.2s ease;
+  display: block;
 }
 
 .recipe-card:hover {
   transform: scale(1.08);
 }
 
-/* --- Ingredient Overlay --- */
+/* --- Ingredient Tooltip (shown on hover) --- */
 
-#ingredient-overlay {
-  display: none; /* hidden until a card is clicked */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 10;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-/* Clipboard with text on top */
-#clipboard-container {
-  position: relative;
-  width: 340px;
-}
-
-#clipboard-img {
-  width: 100%;
-  image-rendering: pixelated;
-}
-
-/* Text sits on top of the clipboard image */
-#ingredient-text {
+.ingredient-tooltip {
+  display: none;
   position: absolute;
-  top: 18%;
-  left: 12%;
-  width: 76%;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border: 3px solid #6a0dad;
+  border-radius: 12px;
+  padding: 14px 18px;
+  width: 200px;
   text-align: center;
   font-family: 'Courier New', monospace;
   color: #3b2000;
+  z-index: 10;
+  pointer-events: none;
 }
 
-#recipe-title {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+.ingredient-tooltip h3 {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: #6a0dad;
 }
 
-#recipe-ingredients {
-  font-size: 0.85rem;
-  line-height: 1.7;
-  white-space: pre-line;
+.ingredient-tooltip p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
 }
 
-#click-hint {
-  margin-top: 20px;
-  color: #fff;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  animation: blink 1.2s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
+/* Show tooltip when hovering the card wrapper */
+.card-wrapper:hover .ingredient-tooltip {
+  display: block;
 }
