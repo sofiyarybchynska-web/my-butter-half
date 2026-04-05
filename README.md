@@ -4,8 +4,8 @@ youCode 2026 hackathon submission by team "Butterfly"; Stream 2
 my-butter-half/
 │
 ├── index.html
-├── update_ingredients.html
-├── recipes_selection.html
+├── ingredients.html
+├── recipes.html
 ├── game.html
 │
 ├── css/
@@ -13,8 +13,8 @@ my-butter-half/
 │
 ├── js/
 │   ├── home.js
-│   ├── update_ingredients.js
-│   ├── recipes_selection.js
+│   ├── ingredients.js
+│   ├── recipes.js
 │   ├── game.js
 │   └── data.js
 │
