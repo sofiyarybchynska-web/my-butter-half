@@ -7,3 +7,36 @@ canvas {
   display: block;
   image-rendering: pixelated;
 }
+
+/* --- Start Screen --- */
+
+#screen-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#start-screen {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  image-rendering: pixelated;
+}
+
+
+/* PLAY button - left - overlay */
+#btn-play {
+  left: 5%;
+  bottom: 35%;
+  width: 20%;
+  height: 14%;
+}
+
+/* UPDATE INGREDIENTS button - right - overlay*/
+#btn-ingredients {
+  right: 5%;
+  bottom: 35%;
+  width: 20%;
+  height: 14%;
+}
