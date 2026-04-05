@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,39 +7,45 @@
     <link rel="stylesheet" href="css/recipes.css">
     <title>My Butter Half - Choose Your Recipe</title>
 </head>
-
 <body>
+
     <!-- Background: Choose Your Recipe screen -->
     <div id="screen-container">
         <img id="bg" src="assets/choose_recipe.png" alt="Choose Your Recipe">
 
         <!-- The 3 recipe cards displayed on screen -->
         <div id="recipe-cards">
-            <img class="recipe-card" src="assets/tuna_fried_rice.png" alt="Tuna Fried Rice" onclick="showIngredients('tuna')">
-            <img class="recipe-card" src="assets/tomato_soup.png"    alt="Tomato Soup"     onclick="showIngredients('soup')">
-            <img class="recipe-card" src="assets/banana_bread.png"   alt="Banana Bread"    onclick="showIngredients('bread')">
-        </div>
-    </div>
 
-    <!-- Ingredient overlay: shown when a recipe card is clicked -->
-    <div id="ingredient-overlay" onclick="goToGame()">
-
-        <!-- Clipboard as the ingredient card background -->
-        <div id="clipboard-container">
-            <img id="clipboard-img" src="assets/clipboard.png" alt="Clipboard">
-
-            <!-- Ingredient text on top of clipboard -->
-            <div id="ingredient-text">
-                <h2 id="recipe-title"></h2>
-                <p id="recipe-ingredients">WRITE INGREDIENTS HERE</p>
+            <!-- Tuna Fried Rice -->
+            <div class="card-wrapper">
+                <img class="recipe-card" src="assets/tuna_fried_rice.png" alt="Tuna Fried Rice" onclick="window.location.href='game.html'">
+                <!-- Ingredient tooltip shown on hover -->
+                <div class="ingredient-tooltip">
+                    <h3>Tuna Fried Rice</h3>
+                    <p>Ingredients:<br>2 cups cooked rice<br>2 cans of tuna<br>1 cucumber<br>4 green onions<br>3 tbsp mayo<br>2 tbsp sriracha<br>sesame seeds<br>oi<br>salt & pepper</p>
+                </div>
             </div>
-        </div>
 
-        <p id="click-hint">Click anywhere to start the game!</p>
+            <!-- Tomato Soup -->
+            <div class="card-wrapper">
+                <img class="recipe-card" src="assets/tomato_soup.png" alt="Tomato Soup" onclick="window.location.href='game.html'">
+                <div class="ingredient-tooltip">
+                    <h3>Tomato Soup</h3>
+                    <p>Ingredients:<br>2 cans (28 oz) crushed tomatoes<br>1 onion<br>3 garlic cloves<br>2 tbsp butter<br>1 tbsp sugar<br>1 cup vegetable broth<br>salt & pepper</p>
+                </div>
+            </div>
+
+            <!-- Banana Bread -->
+            <div class="card-wrapper">
+                <img class="recipe-card" src="assets/banana_bread.png" alt="Banana Bread" onclick="window.location.href='game.html'">
+                <div class="ingredient-tooltip">
+                    <h3>Banana Bread</h3>
+                    <p>Ingredients:<br>3 ripe bananas<br>2 cups flour<br>¾ cup sugar<br>⅓ cup melted butter<br>1 egg<br>1 tsp baking soda<br>pinch of salt<br>1 tsp vanilla</p>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    <script src="js/data.js"></script>
-    <script src="js/recipes.js"></script>
 </body>
-
 </html>
