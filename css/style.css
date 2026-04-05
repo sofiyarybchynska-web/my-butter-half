@@ -24,6 +24,13 @@ canvas {
   image-rendering: pixelated;
 }
 
+.screen-btn {
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  width: 20%;
+  height: 14%;
+}
 
 /* PLAY button - left - overlay */
 #btn-play {

@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>My Butter Half - Recipes</title>
+    <link rel="stylesheet" href="css/recipes.css">
+    <title>My Butter Half - Choose Your Recipe</title>
 </head>
 
 <body>
+    <!-- Background: Choose Your Recipe screen -->
+    <div id="screen-container">
+        <img id="bg" src="assets/choose_recipe.png" alt="Choose Your Recipe">
 
+        <!-- The 3 recipe cards displayed on screen -->
+        <div id="recipe-cards">
+            <img class="recipe-card" src="assets/tuna_fried_rice.png" alt="Tuna Fried Rice" onclick="showIngredients('tuna')">
+            <img class="recipe-card" src="assets/tomato_soup.png"    alt="Tomato Soup"     onclick="showIngredients('soup')">
+            <img class="recipe-card" src="assets/banana_bread.png"   alt="Banana Bread"    onclick="showIngredients('bread')">
+        </div>
+    </div>
 
+    <!-- Ingredient overlay: shown when a recipe card is clicked -->
+    <div id="ingredient-overlay" onclick="goToGame()">
 
+        <!-- Clipboard as the ingredient card background -->
+        <div id="clipboard-container">
+            <img id="clipboard-img" src="assets/clipboard.png" alt="Clipboard">
 
+            <!-- Ingredient text on top of clipboard -->
+            <div id="ingredient-text">
+                <h2 id="recipe-title"></h2>
+                <p id="recipe-ingredients">WRITE INGREDIENTS HERE</p>
+            </div>
+        </div>
 
+        <p id="click-hint">Click anywhere to start the game!</p>
+    </div>
 
     <script src="js/data.js"></script>
     <script src="js/recipes.js"></script>
