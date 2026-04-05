@@ -99,11 +99,11 @@ appliancesImages.tray.src = "assets/tray_empty.png";
 appliancesImages.pot.src = "assets/pot_empty.png";
 appliancesImages.pan.src = "assets/pan_empty.png";
 
-appliances[7].image = appliancesImages.bowl;
-appliances[8].image = appliancesImages.plate;
-appliances[9].image = appliancesImages.tray;
-appliances[10].image = appliancesImages.pot;
-appliances[11].image = appliancesImages.pan;
+appliances[8].image = appliancesImages.bowl;
+appliances[9].image = appliancesImages.plate;
+appliances[10].image = appliancesImages.tray;
+appliances[11].image = appliancesImages.pot;
+appliances[12].image = appliancesImages.pan;
 
 //load default
 // function checkCollision(character, appliance) {
@@ -157,7 +157,7 @@ function draw(){
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
     // draw appliances
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 8; i++) {
         ctx.fillStyle = "gray";
         ctx.fillRect(appliances[i].locationX*scaleX, appliances[i].locationY*scaleY, appliances[i].width*scaleX, appliances[i].height*scaleY);
         // draw label

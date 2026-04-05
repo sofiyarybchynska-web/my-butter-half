@@ -100,58 +100,66 @@ let appliances = [
     {
         name: "Stove",
         image: null,
-        locationX: 500,
-        locationY: 250,
-        width: 50,
-        height: 50
+        locationX: 390,
+        locationY: 170,
+        width: 300,
+        height: 140
     },
     {
         name: "Sink",
         image: null,
-        locationX: 100,
-        locationY: 250,
-        width: 50,
-        height: 50
+        locationX: 1050,
+        locationY: 160,
+        width: 340,
+        height: 150
     },
     {
         name: "Oven",
         image: null,
-        locationX: 650,
-        locationY: 250,
-        width: 50,
-        height: 50
+        locationX: 380,
+        locationY: 310,
+        width: 310,
+        height: 140
     },
     {
         name: "Fridge",
         image: null,
-        locationX: 100,
+        locationX: 1700,
         locationY: 100,
-        width: 50,
-        height: 50
+        width: 190,
+        height: 320
     },
     {
         name: "Toaster",
         image: null,
-        locationX: 500,
-        locationY: 100,
-        width: 50,
-        height: 50
+        locationX: 1500,
+        locationY: 140,
+        width: 135,
+        height: 120
     },
     {
         name: "Cutting Board",
         image: null,
-        locationX: 250,
-        locationY: 450,
-        width: 50,
-        height: 50
+        locationX: 750,
+        locationY: 190,
+        width: 200,
+        height: 100
+    },
+    {
+        name: "Side Cupboard",
+        image: null,
+        locationX: 40,
+        locationY: 310,
+        width: 175,
+        height: 700
     },
     {
         name: "Island",
         image: null,
-        locationX: 350,
-        locationY: 250,
-        width: 50,
-        height: 50
+        locationX: 860,
+        locationY: 550,
+        width: 720,
+        height: 300
     },
     {
         name: "Bowl",
