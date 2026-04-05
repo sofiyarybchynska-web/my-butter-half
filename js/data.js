@@ -1,16 +1,19 @@
 let characters = [
     {
         name: "Mother",
-        image: "",
+        image: null,
         locationX: 200,
         locationY: 300,
-        inventory: []
+        width: 250*1.5,
+        height: 275*1.5,
     },
     {
         name: "Child",
-        image: "assets/Child character down.png",
+        image: null,
         locationX: 500,
         locationY: 300,
+        width: 340,
+        height: 400,
         inventory: []
     }
 ];
@@ -96,69 +99,99 @@ const recipes = [
 let appliances = [
     {
         name: "Stove",
-        image: "",
-        locationX: 650,
-        locationY: 100
+        image: null,
+        locationX: 500,
+        locationY: 250,
+        width: 50,
+        height: 50
     },
     {
         name: "Sink",
-        image: "",
+        image: null,
         locationX: 100,
-        locationY: 250
+        locationY: 250,
+        width: 50,
+        height: 50
     },
     {
         name: "Oven",
-        image: "",
+        image: null,
         locationX: 650,
-        locationY: 250
+        locationY: 250,
+        width: 50,
+        height: 50
     },
     {
         name: "Fridge",
-        image: "",
+        image: null,
         locationX: 100,
-        locationY: 100
+        locationY: 100,
+        width: 50,
+        height: 50
     },
     {
         name: "Toaster",
-        image: "",
+        image: null,
         locationX: 500,
-        locationY: 100
+        locationY: 100,
+        width: 50,
+        height: 50
     },
     {
         name: "Cutting Board",
-        image: "",
+        image: null,
         locationX: 250,
-        locationY: 450
+        locationY: 450,
+        width: 50,
+        height: 50
     },
     {
         name: "Island",
-        image: "",
+        image: null,
         locationX: 350,
-        locationY: 250
-    },
-    {
-        name: "Microwave",
-        image: "",
-        locationX: 500,
-        locationY: 250
+        locationY: 250,
+        width: 50,
+        height: 50
     },
     {
         name: "Bowl",
-        image: "",
+        image: null,
         locationX: 350,
-        locationY: 450
+        locationY: 450,
+        width: 50,
+        height: 50
     },
     {
         name: "Plate",
-        image: "",
+        image: null,
         locationX: 450,
-        locationY: 450
+        locationY: 450,
+        width: 50,
+        height: 50
     },
     {
         name: "Tray",
-        image : "",
+        image: null,
         locationX: 550,
-        locationY: 450
+        locationY: 450,
+        width: 50,
+        height: 50
+    },
+    {
+        name: "Pot",
+        image: null,
+        locationX: 550,
+        locationY: 450,
+        width: 50,
+        height: 50
+    },
+    {
+        name: "Pan",
+        image: null,
+        locationX: 550,
+        locationY: 450,
+        width: 50,
+        height: 50
     }
 ];
 
